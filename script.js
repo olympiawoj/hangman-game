@@ -12,6 +12,8 @@ const figureParts = document.querySelectorAll(".figure-part");
 
 const words = ["application", "programming", "interface", "wizard"];
 
+let playable = true;
+
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
 const correctLetters = [];
@@ -54,8 +56,11 @@ function updateWrongLettersEl(){
 
      // Check if lost
      if(wrongLetters.length === figureParts.length){
-        finalMessage.innerText = 'Unfortunately you lost. 😕'
-        popup.style.display = 'flex'
+        finalMessage.innerText = 'Unfortunately you lost. 😕';
+		finalMessageRevealWord.innerText = `...the word was: ${selectedWord}`;
+		popup.style.display = 'flex';
+
+		playable = false;
      }
  
 }
